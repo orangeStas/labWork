@@ -221,13 +221,20 @@ public class chat extends javax.swing.JFrame {
                 while ((stream = reader.readLine()) != null) {
                     data = stream.split(":");
                     String name = data[0], messageString = data[1], command = data[2];
+                    //if client get a message
                     if (command.equals(message)) {
                         chatTextArea.append(name + ": " + messageString + "\n");
+                        
+                    //if client get access to server
                     } else if (command.equals(connect)) {
                         chatTextArea.removeAll();
                         userAdd(name);
+                        
+                    //if client get disconnect command from server
                     } else if (command.equals(disconnect)) {
                         userRemove(name);
+                        
+                    //reflesh online users after servers's work
                     } else if (command.equals(done)) {
                         onlineUsersArea.setText("");
                         writeUsers();
