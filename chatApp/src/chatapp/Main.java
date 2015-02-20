@@ -14,6 +14,8 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+    
+    /*Run application*/
     public static void main(String[] args) {
         new chat().setVisible(true);
     }
